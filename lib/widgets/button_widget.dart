@@ -18,7 +18,7 @@ class ButtonWidget extends StatelessWidget {
           minimumSize: isFullWidth ? const Size.fromHeight(51) : null,
           backgroundColor: Color(0xFFED1C24),
           padding: EdgeInsets.symmetric(
-            vertical: MediaQuery.of(context).size.height * 0.03,
+            vertical: MediaQuery.of(context).size.height * 0.02,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(200 / 2),
@@ -30,7 +30,7 @@ class ButtonWidget extends StatelessWidget {
             text,
             style: TextStyle(
               color: Colors.white,
-              fontSize: MediaQuery.of(context).size.width * 0.038,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
             ),
             textAlign: TextAlign.center,
           ),

@@ -27,7 +27,7 @@ class GetStartPage extends StatelessWidget {
                 'Welcome to Telkomedika',
                 style: TextStyle(
                   color: Color.fromARGB(255, 244, 31, 38),
-                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -38,7 +38,7 @@ class GetStartPage extends StatelessWidget {
               child: Text(
                 'Establish Better Healthiness Level for Community through Excellent Healthcare Service and Value Creation to all Stakeholder.',
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.026,
+                  fontSize: MediaQuery.of(context).size.width * 0.03,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -47,7 +47,7 @@ class GetStartPage extends StatelessWidget {
               padding: EdgeInsets.only(
                 top: MediaQuery.of(context).size.height * 0.06,
               ),
-              width: max(MediaQuery.of(context).size.width * 0.6, 50),
+              width: max(MediaQuery.of(context).size.width * 0.6, 100),
               child: ButtonWidget(
                   text: 'Get Started',
                   onPressed: () {
