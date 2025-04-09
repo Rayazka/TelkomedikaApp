@@ -1,0 +1,2 @@
+D:/TUBES/TelkomedikaApp/android/app/.cxx/Debug/4g05n930/x86_64/CMakeFiles/edit_cache.dir
+D:/TUBES/TelkomedikaApp/android/app/.cxx/Debug/4g05n930/x86_64/CMakeFiles/rebuild_cache.dir
