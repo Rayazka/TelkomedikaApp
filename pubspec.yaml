@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.7.2
-  flutter_native_splash: ^2.4.6
+  flutter_native_splash: 2.4.4
 
 dev_dependencies:
   flutter_test:
