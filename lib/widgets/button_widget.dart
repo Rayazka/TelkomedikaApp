@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+
+class ButtonWidget extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final bool isFullWidth;
+  const ButtonWidget(
+      {super.key,
+      required this.text,
+      required this.onPressed,
+      this.isFullWidth = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          minimumSize: isFullWidth ? const Size.fromHeight(51) : null,
+          backgroundColor: Color(0xFFED1C24),
+          padding: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.height * 0.03,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(200 / 2),
+          ),
+        ),
+        child: Container(
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: MediaQuery.of(context).size.width * 0.038,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ));
+  }
+}
