@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'views/landing_page_views.dart';
 import 'package:telkomedika_app/view/get_start_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -16,7 +17,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Telkomedika App',
       debugShowCheckedModeBanner: false,
       home: GetStartPage(),
     );

@@ -4,6 +4,9 @@ flutter_native_splash:
   android: true
   ios: true
 
+  android_gravity: center
+  ios_content_mode: center
+
   android_12:
     image: assets/images/splash_logo_telkomedika.png
     color: "#A61C22"
