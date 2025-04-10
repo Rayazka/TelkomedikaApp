@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1071096255965",
+    "project_id": "telkomedikaapp-a6e72",
+    "storage_bucket": "telkomedikaapp-a6e72.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071096255965:android:0a3535f563a432a4fe1234",
+        "android_client_info": {
+          "package_name": "com.example.telkomedika_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5QGE3RIfyHU2onae6lfxg5I_WDN53YoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
