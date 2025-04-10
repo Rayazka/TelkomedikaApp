@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'telkomedikaapp-a6e72.firebasestorage.app',
     measurementId: 'G-N7GZEDZL7S',
   );
+
 }
