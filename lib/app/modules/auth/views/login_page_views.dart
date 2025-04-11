@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signup_page_views.dart';
-import 'landing_page_views.dart';
+import '../../get_started/views/landing_page_views.dart';
 
 void main() {
   runApp(const LoginPage());

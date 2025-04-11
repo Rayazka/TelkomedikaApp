@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:telkomedika_app/widgets/button_widget.dart';
+import 'package:telkomedika_app/app/modules/auth/views/login_page_views.dart';
+import 'package:telkomedika_app/app/widgets/button_widget.dart';
 
 class GetStartPage extends StatelessWidget {
   const GetStartPage({super.key});
@@ -51,7 +52,11 @@ class GetStartPage extends StatelessWidget {
               child: ButtonWidget(
                   text: 'Get Started',
                   onPressed: () {
-                    print('object');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()),
+                    );
                   }),
             )
           ],
