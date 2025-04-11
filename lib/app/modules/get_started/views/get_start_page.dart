@@ -17,9 +17,9 @@ class GetStartPage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 40),
               child: Image.asset(
-                'assets/images/logo_telkomedika.png',
+                'assets/images/splash_logo_telkomedika.png',
                 fit: BoxFit.contain,
-                width: MediaQuery.of(context).size.width * 0.5,
+                width: MediaQuery.of(context).size.width * 0.8,
               ),
             ),
             Container(
@@ -54,8 +54,7 @@ class GetStartPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginPage()),
+                      MaterialPageRoute(builder: (context) => LoginPage()),
                     );
                   }),
             )

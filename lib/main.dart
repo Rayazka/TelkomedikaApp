@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:telkomedika_app/app/themes/app_theme.dart';
 import 'package:telkomedika_app/app/modules/get_started/views/get_start_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:telkomedika_app/app/themes/app_theme.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -18,10 +18,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Telkomedika App',
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      debugShowCheckedModeBanner: false,
+      title: 'Telkomedika',
+      theme: AppTheme.theme,
       home: GetStartPage(),
     );
   }

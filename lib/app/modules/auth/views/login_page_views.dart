@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signup_page_views.dart';
-import '../../get_started/views/landing_page_views.dart';
+import 'package:telkomedika_app/app/modules/get_started/views/get_start_page.dart';
 
 void main() {
   runApp(const LoginPage());
@@ -50,8 +50,7 @@ class LogIn extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const LandingPage()),
+                      MaterialPageRoute(builder: (context) => GetStartPage()),
                     );
                   },
                   child: Image.asset(
