@@ -1,304 +1,240 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'signup_page_views.dart';
 import 'package:telkomedika_app/app/modules/get_started/views/get_start_page.dart';
-
-void main() {
-  runApp(const LoginPage());
-}
+import 'package:telkomedika_app/app/widgets/button_widget.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                LogIn(),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class LogIn extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 390,
-          height: 815,
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(color: Colors.white),
-          child: Stack(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Positioned(
-                left: 15,
-                top: 37,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => GetStartPage()),
-                    );
-                  },
-                  child: Image.asset(
-                    'assets/images/Vector.png',
-                    width: 50,
-                    height: 50,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => GetStartPage()),
+                      );
+                    },
+                    child: Container(
+                        padding: const EdgeInsets.only(top: 63, left: 30),
+                        child: Image.asset(
+                          'assets/images/Vector.png',
+                          fit: BoxFit.contain,
+                          width: MediaQuery.of(context).size.width * 0.03,
+                        )),
                   ),
-                ),
-              ),
-              Positioned(
-                left: 119,
-                top: 50,
-                child: SizedBox(
-                  width: 121,
-                  height: 30,
-                  child: Text(
-                    'Log In',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: const Color(0xFFED1C24),
-                      fontSize: 18,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 111,
-                child: SizedBox(
-                  width: 121,
-                  height: 30,
-                  child: Text(
-                    'Welcome',
-                    style: TextStyle(
-                      color: const Color(0xFFED1C24),
-                      fontSize: 18,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 208,
-                child: SizedBox(
-                  width: 214,
-                  height: 30,
-                  child: Text(
-                    'Email Account',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 234,
-                child: SizedBox(
-                  width: 299,
-                  height: 45,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                      hintText: 'example@example.com',
-                      hintStyle: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFF737473),
+                  Container(
+                    padding: const EdgeInsets.only(top: 63, left: 119),
+                    child: Text(
+                      "Log In",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 244, 31, 38),
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        fontWeight: FontWeight.bold,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(13),
-                        borderSide: BorderSide(
-                          color: Color(0xFF737473),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(top: 34, left: 30),
+                        child: Text(
+                          "Welcome",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 244, 31, 38),
+                            fontSize: MediaQuery.of(context).size.width * 0.06,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(13),
-                        borderSide: BorderSide(
-                          color: Color(0xFF737473),
+                      Container(
+                        width:
+                            max(MediaQuery.of(context).size.width * 0.75, 324),
+                        padding: const EdgeInsets.only(top: 16, left: 30),
+                        child: Text(
+                          "TelkoMedika merupakan perusahaan penyedia layanan kesehatan (Healthcare Provider) yang memberikan layanan solusi kesehatan untuk masyarakat umum berupa Klinik, Laboratorium, Apotek, Optik dan Layanan Kesehatan.",
+                          style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.025,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w200),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(top: 15, left: 30),
+                        child: Text(
+                          "Masukan Email",
+                          style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.04,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.normal),
                         ),
                       ),
-                    ),
-                    style: TextStyle(color: Colors.black),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.90,
+                        height: 70,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 30, top: 16),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 12),
+                              hintText: 'example@example.com',
+                              hintStyle: TextStyle(
+                                fontSize: 12,
+                                color: Color(0xFF737473),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13),
+                                borderSide:
+                                    BorderSide(color: Color(0xFF737473)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13),
+                                borderSide:
+                                    BorderSide(color: Color(0xFF737473)),
+                              ),
+                            ),
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                left: 30,
-                top: 325,
-                child: SizedBox(
-                  width: 299,
-                  height: 45,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                      hintText: '**********',
-                      hintStyle: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xFF737473),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(13),
-                        borderSide: BorderSide(
-                          color: Color(0xFF8F9BB3),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(top: 15, left: 30),
+                        child: Text(
+                          "Password",
+                          style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.04,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.normal),
                         ),
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(13),
-                        borderSide: BorderSide(
-                          color: Color(0xFF8F9BB3),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.90,
+                        height: 70,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 30, top: 16),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 12),
+                              hintText: '*********',
+                              hintStyle: TextStyle(
+                                fontSize: 12,
+                                color: Color(0xFF737473),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13),
+                                borderSide:
+                                    BorderSide(color: Color(0xFF737473)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(13),
+                                borderSide:
+                                    BorderSide(color: Color(0xFF737473)),
+                              ),
+                            ),
+                            style: TextStyle(color: Colors.black),
+                          ),
                         ),
                       ),
-                    ),
-                    style: TextStyle(color: Colors.black),
+                    ],
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                left: 137,
-                top: 379,
-                child: SizedBox(
-                  width: 185,
-                  height: 30,
-                  child: Text(
-                    'Forget Password',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      color: const Color(0xFFED1C24),
-                      fontSize: 12,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w500,
-                    ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(top: 30),
+                    width: max(MediaQuery.of(context).size.width * 0.7, 100),
+                    child: ButtonWidget(
+                        text: 'Log In',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpPage()),
+                          );
+                        }),
                   ),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 141,
-                child: SizedBox(
-                  width: 324,
-                  height: 30,
-                  child: Text(
-                    'TelkoMedika merupakan perusahaan penyedia layanan kesehatan (Healthcare Provider) yang memberikan layanan solusi kesehatan untuk masyarakat umum berupa Klinik, Laboratorium, Apotek, Optik dan Layanan Kesehatan.',
-                    style: TextStyle(
-                      color: const Color(0xFF070707),
-                      fontSize: 10,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w300,
+                  SizedBox(
+                    width: 10,
+                    height: 10,
+                  ),
+                  Container(
+                    child: Text(
+                      "or sign in with",
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontWeight: FontWeight.w200),
                     ),
                   ),
-                ),
-              ),
-              Positioned(
-                left: 82,
-                top: 442,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignupPage()),
-                    );
-                  },
-                  child: Container(
-                    width: 207,
-                    height: 45,
-                    decoration: ShapeDecoration(
-                      color: const Color(0xFFED1C24),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Log In',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
+                  SizedBox(
+                    width: 10,
+                    height: 10,
                   ),
-                ),
-              ),
-              Positioned(
-                left: 49,
-                top: 487,
-                child: SizedBox(
-                  width: 273,
-                  height: 20,
-                  child: Text(
-                    'or sign in with',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: const Color(0xFF070707),
-                      fontSize: 12,
-                      fontFamily: 'League Spartan',
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 181,
-                top: 517,
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFCAD6FF),
-                    shape: OvalBorder(),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 192,
-                top: 528,
-                child: GestureDetector(
-                  onTap: () {
-                    print('Google Sign-In tapped');
-                  },
-                  child: Container(
-                    width: 20,
-                    height: 20,
+                  Container(
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/Google.png'),
-                        fit: BoxFit.cover,
+                      color: Color(0xFFD6E2FF),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/Google.png',
+                        width: 23,
+                        height: 33,
+                        fit: BoxFit.contain,
                       ),
                     ),
-                  ),
-                ),
-              ),
+                  )
+                ],
+              )
             ],
           ),
         ),
-      ],
+      ),
     );
   }
 }
