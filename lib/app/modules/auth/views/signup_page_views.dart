@@ -1,14 +1,21 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:telkomedika_app/app/widgets/buttonSiginWithGoogle_widget.dart';
+import 'package:telkomedika_app/app/widgets/buttonTextLink_widget.dart';
+import 'package:telkomedika_app/app/widgets/inputField_widget.dart';
+import 'package:telkomedika_app/app/widgets/titleBar_widget.dart';
+import 'package:telkomedika_app/app/widgets/welcomeGreeting_widget.dart';
 import 'login_page_views.dart';
 import 'package:telkomedika_app/app/modules/get_started/views/get_start_page.dart';
 import 'package:telkomedika_app/app/widgets/button_widget.dart';
-import 'package:telkomedika_app/app/modules/auth/controllers/auth.dart';
+import 'package:telkomedika_app/app/modules/auth/services/auth.dart';
 
 class SignUpPage extends StatelessWidget {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _authController = AuthController();
+
+  SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,177 +25,32 @@ class SignUpPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => GetStartPage()),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 40, left: 30),
-                      child: Image.asset(
-                        'assets/images/Vector.png',
-                        fit: BoxFit.contain,
-                        width: MediaQuery.of(context).size.width * 0.03,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 40, left: 20),
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          color: const Color.fromARGB(255, 244, 31, 38),
-                          fontSize: MediaQuery.of(context).size.width *
-                              0.06, // Responsif
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              TitleBar(
+                title: "Sign Up",
+                onBack: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const GetStartPage()));
+                },
               ),
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(top: 34, left: 30),
-                        child: Text(
-                          "Welcome!",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 244, 31, 38),
-                            fontSize: MediaQuery.of(context).size.width * 0.06,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        padding: const EdgeInsets.only(top: 16, left: 30),
-                        child: Text(
-                          "TelkoMedika merupakan perusahaan penyedia layanan kesehatan (Healthcare Provider) yang memberikan layanan solusi kesehatan untuk masyarakat umum berupa Klinik, Laboratorium, Apotek, Optik dan Layanan Kesehatan.",
-                          style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.025,
-                              fontWeight: FontWeight.w200),
-                          softWrap: true,
-                          overflow: TextOverflow.visible,
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(top: 15, left: 30),
-                        child: Text(
-                          "Masukan Email",
-                          style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.04,
-                              fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 70,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 30, top: 16),
-                          child: TextField(
-                            controller: _emailController,
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 12),
-                              hintText: 'example@example.com',
-                              hintStyle: TextStyle(
-                                fontSize: 12,
-                                color: Color(0xFF737473),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(13),
-                                borderSide:
-                                    BorderSide(color: Color(0xFF737473)),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(13),
-                                borderSide:
-                                    BorderSide(color: Color(0xFF737473)),
-                              ),
-                            ),
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(top: 15, left: 30),
-                        child: Text(
-                          "Password",
-                          style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.04,
-                              fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.90,
-                        height: 70,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 30, top: 16),
-                          child: TextField(
-                            controller: _passwordController,
-                            keyboardType: TextInputType.visiblePassword,
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 12),
-                              hintText: '*********',
-                              hintStyle: TextStyle(
-                                fontSize: 12,
-                                color: Color(0xFF737473),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(13),
-                                borderSide:
-                                    BorderSide(color: Color(0xFF737473)),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(13),
-                                borderSide:
-                                    BorderSide(color: Color(0xFF737473)),
-                              ),
-                            ),
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              // Greeting Message
+              WelcomeGreeting(greeting: "Welcome!"),
+              // Email Field
+              InputField(
+                  label: "Masukan Email",
+                  hintText: "example@gmail.com",
+                  controller: _emailController,
+                  obscureText: false,
+                  keyboardType: TextInputType.emailAddress),
+              // Password Field
+              InputField(
+                  label: "Password",
+                  hintText: "********",
+                  controller: _passwordController,
+                  obscureText: true,
+                  keyboardType: TextInputType.visiblePassword),
+              // Sign Up Button
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -200,8 +62,6 @@ class SignUpPage extends StatelessWidget {
                         onPressed: () async {
                           final user = await _authController.register(
                               _emailController.text, _passwordController.text);
-
-                          print(user);
                           if (user != null) {
                             Navigator.pushReplacement(
                                 context,
@@ -209,66 +69,26 @@ class SignUpPage extends StatelessWidget {
                                     builder: (context) => LoginPage()));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Sign Up gagal")),
+                              SnackBar(content: Text("Sign Up Gagal")),
                             );
                           }
                         }),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginPage(),
-                        ),
-                      );
-                    },
-                    child: Text(
-                      "Already have an account? Login",
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * 0.03,
-                        color: Color.fromARGB(255, 95, 95, 95),
-                        fontWeight: FontWeight.w200,
-                      ),
-                    ),
-                  ),
+                  // Social Media Button (Google Sign In)
+                  ButtonTextLink(
+                      text: "Already have an account? Login",
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()));
+                      }),
                   SizedBox(
                     width: 10,
                     height: 10,
                   ),
-                  Container(
-                    child: Text(
-                      "or sign in with",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          fontSize: MediaQuery.of(context).size.width * 0.03,
-                          fontWeight: FontWeight.w200),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                    height: 10,
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width * 0.1,
-                    height: MediaQuery.of(context).size.width * 0.1,
-                    child: ElevatedButton(
-                      onPressed: () => AuthController().signInWithGoogle(),
-                      style: ElevatedButton.styleFrom(
-                        shape: const CircleBorder(),
-                        padding: EdgeInsets.all(
-                            MediaQuery.of(context).size.width * 0.02),
-                        backgroundColor:
-                            const Color.fromARGB(255, 220, 230, 255),
-                        elevation: 2,
-                      ),
-                      child: Image.asset(
-                        'assets/images/Google.png',
-                        fit: BoxFit.contain,
-                        width: MediaQuery.of(context).size.width * 0.05,
-                      ),
-                    ),
-                  )
+                  ButtonSignInWithGoogle(
+                      onGoogleTap: () => _authController.signInWithGoogle())
                 ],
               )
             ],
