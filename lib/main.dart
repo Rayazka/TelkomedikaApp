@@ -20,6 +20,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Telkomedika',
       theme: AppTheme.theme,
+      debugShowCheckedModeBanner: false,
       home: GetStartPage(),
     );
   }
