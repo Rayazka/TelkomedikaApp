@@ -1,12 +1,15 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:telkomedika_app/app/modules/home/views/home.dart';
 import 'signup_page_views.dart';
 import 'package:telkomedika_app/app/modules/get_started/views/get_start_page.dart';
 import 'package:telkomedika_app/app/widgets/button_widget.dart';
+import 'package:telkomedika_app/app/modules/auth/controllers/auth.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _authController = AuthController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -26,22 +29,26 @@ class LoginPage extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => GetStartPage()),
                       );
                     },
-                    child: Container(
-                        padding: const EdgeInsets.only(top: 63, left: 30),
-                        child: Image.asset(
-                          'assets/images/Vector.png',
-                          fit: BoxFit.contain,
-                          width: MediaQuery.of(context).size.width * 0.03,
-                        )),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 40, left: 30),
+                      child: Image.asset(
+                        'assets/images/Vector.png',
+                        fit: BoxFit.contain,
+                        width: MediaQuery.of(context).size.width * 0.03,
+                      ),
+                    ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(top: 63, left: 119),
-                    child: Text(
-                      "Log In",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 244, 31, 38),
-                        fontSize: MediaQuery.of(context).size.width * 0.05,
-                        fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 40, left: 20),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          color: const Color.fromARGB(255, 244, 31, 38),
+                          fontSize: MediaQuery.of(context).size.width *
+                              0.06, // Responsif
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -55,7 +62,7 @@ class LoginPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.only(top: 34, left: 30),
                         child: Text(
-                          "Welcome",
+                          "Welcome Back!",
                           style: TextStyle(
                             color: Color.fromARGB(255, 244, 31, 38),
                             fontSize: MediaQuery.of(context).size.width * 0.06,
@@ -64,16 +71,16 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        width:
-                            max(MediaQuery.of(context).size.width * 0.75, 324),
+                        width: MediaQuery.of(context).size.width * 0.9,
                         padding: const EdgeInsets.only(top: 16, left: 30),
                         child: Text(
                           "TelkoMedika merupakan perusahaan penyedia layanan kesehatan (Healthcare Provider) yang memberikan layanan solusi kesehatan untuk masyarakat umum berupa Klinik, Laboratorium, Apotek, Optik dan Layanan Kesehatan.",
                           style: TextStyle(
                               fontSize:
                                   MediaQuery.of(context).size.width * 0.025,
-                              fontFamily: 'Poppins',
                               fontWeight: FontWeight.w200),
+                          softWrap: true,
+                          overflow: TextOverflow.visible,
                         ),
                       )
                     ],
@@ -93,7 +100,6 @@ class LoginPage extends StatelessWidget {
                           style: TextStyle(
                               fontSize:
                                   MediaQuery.of(context).size.width * 0.04,
-                              fontFamily: 'Poppins',
                               fontWeight: FontWeight.normal),
                         ),
                       ),
@@ -103,6 +109,8 @@ class LoginPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 30, top: 16),
                           child: TextField(
+                            controller: _emailController,
+                            keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 16, vertical: 12),
@@ -143,7 +151,6 @@ class LoginPage extends StatelessWidget {
                           style: TextStyle(
                               fontSize:
                                   MediaQuery.of(context).size.width * 0.04,
-                              fontFamily: 'Poppins',
                               fontWeight: FontWeight.normal),
                         ),
                       ),
@@ -153,6 +160,8 @@ class LoginPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 30, top: 16),
                           child: TextField(
+                            controller: _passwordController,
+                            obscureText: true,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 16, vertical: 12),
@@ -185,16 +194,41 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Container(
                     padding: const EdgeInsets.only(top: 30),
-                    width: max(MediaQuery.of(context).size.width * 0.7, 100),
+                    width: max(MediaQuery.of(context).size.width * 0.8, 100),
                     child: ButtonWidget(
-                        text: 'Log In',
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpPage()),
-                          );
+                        text: 'Login',
+                        onPressed: () async {
+                          final user = await _authController.login(
+                              _emailController.text, _passwordController.text);
+                          if (user != null) {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()));
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Login gagal")),
+                            );
+                          }
                         }),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpPage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Don't have an account? Sign up",
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.03,
+                        color: Color.fromARGB(255, 95, 95, 95),
+                        fontWeight: FontWeight.w200,
+                      ),
+                    ),
                   ),
                   SizedBox(
                     width: 10,
@@ -214,18 +248,22 @@ class LoginPage extends StatelessWidget {
                     height: 10,
                   ),
                   Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFD6E2FF),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
+                    width: MediaQuery.of(context).size.width * 0.1,
+                    height: MediaQuery.of(context).size.width * 0.1,
+                    child: ElevatedButton(
+                      onPressed: () => AuthController().signInWithGoogle(),
+                      style: ElevatedButton.styleFrom(
+                        shape: const CircleBorder(),
+                        padding: EdgeInsets.all(
+                            MediaQuery.of(context).size.width * 0.02),
+                        backgroundColor:
+                            const Color.fromARGB(255, 220, 230, 255),
+                        elevation: 2,
+                      ),
                       child: Image.asset(
                         'assets/images/Google.png',
-                        width: 23,
-                        height: 33,
                         fit: BoxFit.contain,
+                        width: MediaQuery.of(context).size.width * 0.05,
                       ),
                     ),
                   )

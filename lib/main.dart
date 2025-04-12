@@ -21,7 +21,6 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Telkomedika',
       theme: AppTheme.theme,
-      debugShowCheckedModeBanner: false,
       home: GetStartPage(),
     );
   }
