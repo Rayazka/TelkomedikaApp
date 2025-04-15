@@ -11,6 +11,7 @@ import 'package:telkomedika_app/app/widgets/button_widget.dart';
 import 'package:telkomedika_app/app/modules/auth/services/auth.dart';
 
 class SignUpPage extends StatelessWidget {
+  final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _authController = AuthController();
@@ -36,6 +37,13 @@ class SignUpPage extends StatelessWidget {
               ),
               // Greeting Message
               WelcomeGreeting(greeting: "Welcome!"),
+              // Username Field
+              InputField(
+                  label: "Masukan Username",
+                  hintText: "John Doe",
+                  controller: _usernameController,
+                  obscureText: false,
+                  keyboardType: TextInputType.name),
               // Email Field
               InputField(
                   label: "Masukan Email",
@@ -60,9 +68,21 @@ class SignUpPage extends StatelessWidget {
                     child: ButtonWidget(
                         text: 'Sign Up',
                         onPressed: () async {
+                          if (_usernameController.text.trim().isEmpty ||
+                              _emailController.text.trim().isEmpty ||
+                              _passwordController.text.trim().isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text("All fields are required")),
+                            );
+                            return;
+                          }
+
                           final user = await _authController.register(
                               _emailController.text, _passwordController.text);
                           if (user != null) {
+                            await user.user
+                                ?.updateDisplayName(_usernameController.text);
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
