@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'login_page_views.dart';
 import 'package:telkomedika_app/app/modules/get_started/views/get_start_page.dart';
 import 'package:telkomedika_app/app/widgets/button_widget.dart';
+import 'package:telkomedika_app/app/modules/reservation/views/reservation_form_views.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
@@ -192,7 +193,7 @@ class SignUpPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginPage()),
+                                builder: (context) => ReservationForm()),
                           );
                         }),
                   ),

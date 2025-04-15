@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'signup_page_views.dart';
 import 'package:telkomedika_app/app/modules/get_started/views/get_start_page.dart';
 import 'package:telkomedika_app/app/widgets/button_widget.dart';
+import 'package:telkomedika_app/app/modules/home/views/home_page_views.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -191,8 +192,7 @@ class LoginPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpPage()),
+                            MaterialPageRoute(builder: (context) => HomePage()),
                           );
                         }),
                   ),
