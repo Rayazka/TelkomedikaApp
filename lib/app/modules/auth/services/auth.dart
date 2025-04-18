@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:telkomedika_app/app/widgets/customAlertDialog.dart';
+import 'package:telkomedika_app/app/modules/auth/views/login_page_views.dart';
+import 'package:telkomedika_app/app/widgets/custom_alert_dialog.dart';
 
 class AuthController {
   final User? firebaseUser = FirebaseAuth.instance.currentUser;
@@ -26,8 +28,16 @@ class AuthController {
   }
 
   Future<void> logout() async {
-    await _auth.signOut();
-    await _googleSignIn.signOut();
+    try {
+      await _auth.signOut();
+      await _googleSignIn.signOut();
+      Get.offAll(() => LoginPage());
+    } catch (e) {
+      CustomAlertDialog.showError(
+        title: "Logout Gagal",
+        message: "Terjadi kesalahan saat logout: $e",
+      );
+    }
   }
 
   // Google Sign In

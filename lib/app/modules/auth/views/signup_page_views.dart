@@ -6,10 +6,10 @@ import 'package:get/get.dart';
 import 'package:telkomedika_app/app/modules/auth/controllers/signup_controller.dart';
 
 // Widgets
-import 'package:telkomedika_app/app/widgets/buttonSiginWithGoogle_widget.dart';
-import 'package:telkomedika_app/app/widgets/buttonTextLink_widget.dart';
-import 'package:telkomedika_app/app/widgets/inputField_widget.dart';
-import 'package:telkomedika_app/app/widgets/titleBar_widget.dart';
+import 'package:telkomedika_app/app/widgets/button_sigin_with_google_widget.dart';
+import 'package:telkomedika_app/app/widgets/button_text_link_widget.dart';
+import 'package:telkomedika_app/app/widgets/input_field_widget.dart';
+import 'package:telkomedika_app/app/widgets/titlebar_widget.dart';
 import 'package:telkomedika_app/app/widgets/welcomeGreeting_widget.dart';
 import 'package:telkomedika_app/app/widgets/button_widget.dart';
 

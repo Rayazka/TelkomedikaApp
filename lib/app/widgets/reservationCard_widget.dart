@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telkomedika_app/app/modules/reservation/controllers/reservation_controller.dart';
-import 'package:telkomedika_app/app/widgets/customAlertDialog.dart';
+import 'package:telkomedika_app/app/widgets/custom_alert_dialog.dart';
 import 'package:telkomedika_app/app/widgets/update_reserved_dialog_widget.dart';
 
 class ReservationCard extends StatelessWidget {

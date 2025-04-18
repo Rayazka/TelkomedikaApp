@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:telkomedika_app/app/modules/home/views/controllers/home_controller.dart';
 import 'package:telkomedika_app/app/modules/reservation/controllers/reservation_controller.dart';
 import 'package:telkomedika_app/app/modules/reservation/views/riwayat_views.dart';
-import 'package:telkomedika_app/app/widgets/addReservationButton_widget.dart';
-import 'package:telkomedika_app/app/widgets/homeHeader_widget.dart';
+import 'package:telkomedika_app/app/widgets/add_reservation_button_widget.dart';
+import 'package:telkomedika_app/app/widgets/home_header_widget.dart';
 import 'package:telkomedika_app/app/widgets/page_widget.dart';
 import 'package:telkomedika_app/app/widgets/reservation_list_widget.dart';
 

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:telkomedika_app/app/modules/auth/views/login_page_views.dart';
 import 'package:telkomedika_app/app/modules/home/views/home_page_views.dart';
 import 'package:telkomedika_app/app/modules/profile/controllers/profile_controller.dart';
-import 'package:telkomedika_app/app/widgets/titleBar_widget.dart';
+import 'package:telkomedika_app/app/widgets/titlebar_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});

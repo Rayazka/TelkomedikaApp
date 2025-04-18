@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomAlertDialog {
-  /// ✅ Untuk dialog sukses
+  // Untuk dialog sukses
   static void showSuccess({
     required String title,
     required String message,
@@ -22,7 +22,7 @@ class CustomAlertDialog {
     );
   }
 
-  /// ❌ Untuk dialog error
+  // Untuk dialog error
   static void showError({
     required String title,
     required String message,
@@ -42,7 +42,7 @@ class CustomAlertDialog {
     );
   }
 
-  /// ❓ Untuk konfirmasi aksi
+  // Untuk konfirmasi aksi
   static void showConfirmation({
     required String title,
     required String message,
@@ -141,7 +141,7 @@ class CustomAlertDialog {
     );
   }
 
-  /// 🔧 Template dasar untuk success & error
+  // Template dasar untuk success & error
   static Widget _buildDialog({
     required IconData icon,
     required Color iconColor,

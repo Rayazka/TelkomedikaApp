@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telkomedika_app/app/modules/auth/services/auth.dart';
 import 'package:telkomedika_app/app/modules/home/views/home_page_views.dart';
-import 'package:telkomedika_app/app/modules/reservation/views/reservation_form_views.dart';
-import 'package:telkomedika_app/app/widgets/customAlertDialog.dart';
+import 'package:telkomedika_app/app/widgets/custom_alert_dialog.dart';
 
 class LoginController extends GetxController {
   final emailController = TextEditingController();

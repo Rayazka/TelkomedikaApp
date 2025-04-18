@@ -1,11 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telkomedika_app/app/modules/home/views/home_page_views.dart';
 import 'package:telkomedika_app/app/modules/reservation/controllers/reservation_controller.dart';
-import 'package:telkomedika_app/app/widgets/reservationCard_widget.dart';
 import 'package:telkomedika_app/app/widgets/reservation_list_widget.dart';
-import 'package:telkomedika_app/app/widgets/titleBar_widget.dart';
+import 'package:telkomedika_app/app/widgets/titlebar_widget.dart';
 
 class RiwayatPage extends StatefulWidget {
   const RiwayatPage({super.key});

@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:telkomedika_app/app/modules/home/views/home_page_views.dart';
-import 'package:telkomedika_app/app/widgets/customAlertDialog.dart';
+import 'package:telkomedika_app/app/widgets/custom_alert_dialog.dart';
 
 class ReservationController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
