@@ -15,34 +15,6 @@ Database: Firebase
 Authentication: Firebase Auth
 Version Control: Git + GitHub
 
-telkom-medika/
-│
-lib/
-└── app/
-    ├── modules/
-    │   ├── auth/                   # Modul autentikasi
-    │   │   ├── controllers/        # Controller login, register, dsb
-    │   │   ├── services/           # Layanan  FirebaseAuth
-    │   │   └── views/              # Tampilan UI untuk login/register
-    │   │
-    │   ├── get_started/            # Halaman splash screen
-    │   │   └── views/              # Tampilan UI splash screen
-    │   │
-    │   ├── home/                   # Halaman beranda utama
-    │   │   ├── controllers/        # Controller navigasi & data home
-    │   │   └── views/              # Tampilan UI untuk home
-    │   │      
-    │   │
-    │   ├── profile/                # Modul profil pengguna
-    │   │   ├── controllers/        # Controller profile
-    │   │   └── views/              # Tampilan UI untuk profile
-    │   │
-    │   └── reservation/            # Modul reservasi layanan kesehatan
-    │       ├── controllers/
-    │       └── views/              # Tampilan UI untuk reservation
-    ├── firebase_options.dart       # Konfigurasi Firebase
-    └── main.dart                   # Entry point aplikasi
-
 ## Installation
 
 **Clone project ini**  
@@ -69,3 +41,5 @@ Password: 123456
 ```
 
 ## Screenshot
+![image](https://github.com/user-attachments/assets/e94725b7-7804-40db-a990-e791f1a52d51)
+
