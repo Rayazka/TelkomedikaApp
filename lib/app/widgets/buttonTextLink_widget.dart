@@ -18,8 +18,8 @@ class ButtonTextLink extends StatelessWidget {
         text,
         style: TextStyle(
           fontSize: MediaQuery.of(context).size.width * 0.03,
-          color: const Color.fromARGB(255, 95, 95, 95),
-          fontWeight: FontWeight.w200,
+          color: const Color.fromARGB(255, 86, 113, 177),
+          fontWeight: FontWeight.w400,
         ),
       ),
     );

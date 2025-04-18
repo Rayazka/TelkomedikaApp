@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:telkomedika_app/app/modules/get_started/views/get_start_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:telkomedika_app/app/themes/app_theme.dart';
@@ -17,7 +18,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Telkomedika',
       theme: AppTheme.theme,

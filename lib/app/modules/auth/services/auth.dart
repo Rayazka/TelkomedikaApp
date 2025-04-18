@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:telkomedika_app/app/widgets/customAlertDialog.dart';
 
 class AuthController {
   final User? firebaseUser = FirebaseAuth.instance.currentUser;
@@ -11,7 +12,6 @@ class AuthController {
       return await _auth.signInWithEmailAndPassword(
           email: email, password: password);
     } catch (e) {
-      print("Login error: $e");
       return null;
     }
   }
@@ -21,7 +21,6 @@ class AuthController {
       return await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
     } catch (e) {
-      print("Register error: $e");
       return null;
     }
   }
@@ -50,7 +49,10 @@ class AuthController {
 
       return userCredential.user;
     } catch (e) {
-      print("Google Sign-In error: $e");
+      CustomAlertDialog.showError(
+        title: "Google Sign-In Error",
+        message: "Terjadi kesalahan saat masuk dengan Google: $e",
+      );
       return null;
     }
   }
