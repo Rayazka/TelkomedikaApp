@@ -9,11 +9,11 @@ Telkom Medika adalah aplikasi digital yang dirancang untuk mempermudah proses re
 -Menyimpan histori pemesanan layanan yang pernah dilakukan pengguna.
 
 **💡 Teknologi yang Digunakan:**
-Frontend: Dart
-Backend: Dart
-Database: Firebase
-Authentication: Firebase Auth
-Version Control: Git + GitHub
+Frontend: Dart <br>
+Backend: Dart <br>
+Database: Firebase <br>
+Authentication: Firebase Auth <br>
+Version Control: Git + GitHub <br>
 
 ## Installation
 
